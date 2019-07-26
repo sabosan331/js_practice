@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+body {
+    text-align: center;
+}
+</style>
+
+<body id="body">
+
+<h2>Change CSS using JavaScript</h2>
+<img src="../img/sun.png" width="100px" id="img">
+<h2 id="message">sunny day!</h2>
+<button id="b1" onclick=changeDayNight()>change to night!</button>
+<!-- ↑ not class but id -->
+
+<script>
+
+flag = false;
+var bodyStyle = document.getElementById('body').style;
+var btn = document.getElementById('b1');
+var img = document.getElementById('img');
+var message = document.getElementById('message');
+
+// change backgrounColor, color, image, button text and message.
+function changeDayNight() {
+
+    if (flag == false){
+        bodyStyle.backgroundColor='#000000';
+        bodyStyle.color='#ffffff';
+        btn.innerHTML = "change to day!";
+        img.src = "../img/moon.png";
+        message.innerHTML = "moon is beautiful ..."
+        flag = true;
+    } else {
+        bodyStyle.backgroundColor='#ffffff';
+        bodyStyle.color='#000000';
+        btn.innerHTML = "change to night!"
+        img.src = "../img/sun.png";
+        message.innerHTML = "sunny day!"
+        flag = false;
+    }
+
+}
+</script>
+</body>
+</html>
