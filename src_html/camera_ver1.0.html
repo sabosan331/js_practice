@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <style>
+        
+        body {
+            background-color : #f0f0f0;
+            margin: 50 auto;
+            text-align: center;        
+        }
+
+        video {
+            width: 320px;
+            height: 240px;
+        }
+
+    </style>
+    </head>
+
+    <body>
+    <video id="video" autoplay playsinline="true"></video><br>
+    <button id="start" onclick="startCamera()">start!</button>
+    <button id="stop" onclick="stopCamera()">stop!</button>
+
+    </body>
+
+    <script>
+        var video = document.getElementById('video');
+        let localStream;
+        var constraints = { audio: false,video: { facingMode: 'environment'} };
+        //  カメラの映像を取得
+
+        // start caputring
+        function startCamera() {    
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then((stream) => {
+                    localStream = stream;
+                    video.srcObject = stream;
+                })
+                .catch((err) => {
+                    window.alert(err.name + ': ' + err.message);
+            });
+        }
+
+        // stop capturing
+        function stopCamera() {
+            
+            for (track of localStream.getTracks()) {
+                track.stop();
+            }
+            video.srcObject = null;
+            video.pause();
+            window.URL.revokeObjectURL(video.src);
+            video.src = '';
+        }
+        
+    </script>
+</html>
