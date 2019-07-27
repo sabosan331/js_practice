@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<style>
+
+body {
+    text-align : center;
+    padding : 20px;
+}
+
+button {
+    margin : 20px;
+}
+
+div {
+    text-align : center;
+    margin : 0 50px 0 50px;
+    border : solid 2px;
+    border-color : black;
+}
+
+</style>
+
+<h2>JavaScript can hide HTML elements.</h2>
+<button type="button" onclick="hide()">隠れ身の術</button>
+<div id="demo">
+    <p>div</p>
+    <img src="../img/ninja.png" width="100px">
+</div>
+
+<script>
+
+flag = false;
+var div = document.getElementById('demo').style;
+console.log("hoge");
+
+function hide(){
+
+    if (flag == false) {
+        div.display = "none";
+        flag = true;
+    } else {
+        console.log(flag);
+        div.display = "block";
+        flag = false;
+    }
+}
+
+</script>
+
+</body>
+</html> 
