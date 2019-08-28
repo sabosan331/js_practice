@@ -1,0 +1,22 @@
+<h3>show json data</h3>
+
+<p id="text1"></p>
+
+<script>
+
+var json = [
+    { "name": "太郎", "age": "30","tel": "090-0123-4567" },
+    { "name": "花子","age": "23","tel": "080-4567-8901"},
+    { "name": "三郎","age": "18","tel": "070-3456-7890"},
+    { "name": "ジョン","age": "28","tel": "090-5432-4356"},
+    { "name": "ポチ","age": "8", "tel": "no number"}
+]
+
+var text = "";
+for (var i=0; i<json.length; i++) {
+    text += json[i].name + "   " + json[i].age + "歳" + "   tel  " +  json[i].tel + "<br>";
+}
+
+document.getElementById("text1").innerHTML = text;
+
+</script>
